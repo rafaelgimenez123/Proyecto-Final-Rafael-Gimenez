@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 import "../NavBar/NavBar.css";
-import CarWidget from '../CartWidget/CarWidget';
+import CartWidget from '../CartWidget/CartWidget'
 
 const Navbar = () => {
   return (
@@ -26,7 +26,7 @@ const Navbar = () => {
       </nav>
 
       <div className="cart-widget">
-        <CarWidget></CarWidget>
+        <CartWidget></CartWidget>
       </div>
     </div>
   );
