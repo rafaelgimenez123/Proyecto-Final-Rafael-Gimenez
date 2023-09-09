@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 import "../NavBar/NavBar.css";
-import CarWidget from './CarWidget';
+import CarWidget from '../CartWidget/CarWidget';
 
 const Navbar = () => {
   return (
