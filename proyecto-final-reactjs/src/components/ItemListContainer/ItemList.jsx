@@ -1,6 +1,7 @@
 import React from "react";
-import propTypes from "prop-types";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { Card } from "react-bootstrap";
 import "./ItemList.css";
 
 const ItemList = ({ items, isLoading }) => {
@@ -9,17 +10,27 @@ const ItemList = ({ items, isLoading }) => {
   }
 
   return (
-    <div className="item-list-container">
+    <div className="card">
       <h1>Productos</h1>
       <div className="item-list">
         {items.map((item) => (
-          <div className="item" key={item.id}>
+          <div key={item.id} className="item">
             <Link to={`/item/${item.id}`}>
-              <div className="item-content">
-                <h3>{item.name}</h3>
-                <p>${item.price}</p>
-                <p>{item.category}</p>
-              </div>
+              <Card style={{ width: "18rem" }}>
+                <img
+                  className="card-img-top"
+                  src="https://i.blogs.es/3339e4/img_1199/840_560.jpg" // URL de la imagen
+                  alt={item.name}
+                />
+                <Card.Body>
+                  <Card.Title>{item.name}</Card.Title>
+                  <Card.Text>${item.price}</Card.Text>
+                  <Card.Text>{item.category}</Card.Text>
+                  <Link to={`/item/${item.id}`} className="btn btn-primary">
+                    Ver Detalles
+                  </Link>
+                </Card.Body>
+              </Card>
             </Link>
           </div>
         ))}
@@ -29,8 +40,8 @@ const ItemList = ({ items, isLoading }) => {
 };
 
 ItemList.propTypes = {
-  items: propTypes.array.isRequired,
-  isLoading: propTypes.bool,
+  items: PropTypes.array.isRequired,
+  isLoading: PropTypes.bool,
 };
 
 export default ItemList;
