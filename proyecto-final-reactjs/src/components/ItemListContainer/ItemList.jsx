@@ -1,9 +1,11 @@
+// ItemList.jsx
+
 import React from "react";
 import propTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "./ItemList.css";
 
-export const ItemList = ({ items, isLoading }) => {
+const ItemList = ({ items, isLoading }) => {
   if (isLoading) {
     return <h2 className="loading">Cargando...</h2>;
   }
@@ -17,7 +19,10 @@ export const ItemList = ({ items, isLoading }) => {
             <Link to={`/item/${item.id}`}>
               <div className="item-content">
                 <div className="item-image">
-                  <img src="https://img.global.news.samsung.com/latin/wp-content/uploads/2023/06/Galaxy_S23_Ultra_Product_Image_Lavender-1-e1686754825826.jpg" alt={item.name} />
+                  <img
+                    src="https://img.global.news.samsung.com/latin/wp-content/uploads/2023/06/Galaxy_S23_Ultra_Product_Image_Lavender-1-e1686754825826.jpg"
+                    alt={item.name}
+                  />
                 </div>
                 <h3>{item.name}</h3>
                 <p>${item.price}</p>
@@ -36,4 +41,4 @@ ItemList.propTypes = {
   isLoading: propTypes.bool,
 };
 
-
+export default ItemList;
