@@ -23,7 +23,7 @@ const ItemDetail = ({ item, isLoading }) => {
         <p className="card-text">${item.price}</p>
         <p className="card-text">{item.category}</p>
         <p>{item.description}</p>
-        <button className="btn btn-primary btn-lg" onClick={() => AddToCart()}>Agregar al carrito</button>
+        <button className="btn btn-primary btn-lg"  onClick={AddToCart}>Agregar al carrito</button>
       </div>
     </div>
   );
