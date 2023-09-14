@@ -1,4 +1,5 @@
-//lista de productos que va a tomar itemlist.jsx
+import { initializeApp } from "firebase/app";
+import {doc , getDoc , collection , getDocs , query ,where ,getFirestore} from "firebase/firestore"
 const products = [
     { id: "1", name: "Samsung Galaxy S23", price: 799, category: "phones", description: "El Samsung Galaxy S23 trae la tecnología de vanguardia y un diseño elegante a tus dedos. Con su potente rendimiento, impresionante pantalla y capacidades avanzadas de la cámara, es el compañero perfecto para mantenerse conectado y capturar momentos con estilo." },
     { id: "2", name: "Samsung Galaxy S23 Pro", price: 999, category: "phones", description: "Experimenta el futuro de la comunicación con el Samsung Galaxy S23 Pro. Repleto de funciones mejoradas y un rendimiento de primera categoría, este teléfono eleva tu experiencia móvil a nuevas alturas. Desde la multitarea hasta la fotografía, está diseñado para superar tus expectativas." },
@@ -14,33 +15,27 @@ const products = [
   
   
     // getProduct
-    export const getProduct = (id) => {
+    export const getProducts = (categoryId) => {
       return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          
-          const product = products.find((p) => p.id === id);
+        const db = getFirestore();
     
-          if (product) {
-            resolve(product);
-          } else {
-            reject("No encontramos el producto");
-          }
-        }, 1000);
+        const itemCollection = collection(db, "items");
+        let q;
+        if (categoryId) {
+          q = query(itemCollection, where("categoryId", "===", categoryId));
+        } else {
+          q = query(itemCollection);
+        }
+        getDocs(q)
+          .then((querySnapshot) => {
+            const products = querySnapshot.docs.map((doc) => {
+              return { id: doc.id, ...doc.data() };
+            });
+            resolve(products); 
+          })
+          .catch((error) => {
+            reject(error); 
+          });
       });
     };
-    
-  
-    export const getProducts = (category) => {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          // Si category existe filtramos por categoría
-          
-    
-          const productsFiltered = category
-            ? products.filter((product) => product.category === category)
-            : products;
-    
-          resolve(productsFiltered);
-        }, 1000);
-      });
-    };
+ 
