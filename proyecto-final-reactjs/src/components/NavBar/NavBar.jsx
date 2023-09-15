@@ -14,7 +14,7 @@ const Navbar = () => {
 
         <ul className="nav-list">
           <li className="li_nav">
-            <NavLink to="/category/phones">Teléfonos</NavLink>
+            <NavLink to="/category/smartphones">Teléfonos</NavLink>
           </li>
           <li className="li_nav">
             <NavLink to="/category/tablets">Tablets</NavLink>
@@ -23,13 +23,13 @@ const Navbar = () => {
             <NavLink to="/category/notebooks">Notebooks</NavLink>
           </li>
           <li className="li_nav">
-            <NavLink to="/cart"><CartWidget></CartWidget></NavLink>
+            
           </li>
         </ul>
       </nav>
 
       <div className="cart-widget">
-        <CartWidget></CartWidget>
+      <NavLink to="/cart"><CartWidget></CartWidget></NavLink>
       </div>
     </div>
   );

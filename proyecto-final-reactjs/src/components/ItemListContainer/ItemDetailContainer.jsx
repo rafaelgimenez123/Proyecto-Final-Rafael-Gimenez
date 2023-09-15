@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getProduct } from "../../services.js";
+import { getProduct, getProducts } from "../../services.js";
 import ItemDetail from "./ItemDetail";
 import "./ItemList.css";
 
@@ -10,7 +10,7 @@ const ItemDetailContainer = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    getProduct(id)
+    getProducts(id)
       .then((response) => {
         setItem(response);
       })

@@ -12,7 +12,7 @@ const ItemDetail = ({ item, isLoading }) => {
   }
 
   return (
-    <div className="card" style={{ width: "18rem" }}>
+    <div className="item-list-container" style={{ width: "18rem" }}>
       <img
         src="https://img.global.news.samsung.com/latin/wp-content/uploads/2023/06/Galaxy_S23_Ultra_Product_Image_Lavender-1-e1686754825826.jpg"
         alt={item.name}
@@ -21,7 +21,7 @@ const ItemDetail = ({ item, isLoading }) => {
       <div className="card-body">
         <h1 className="card-title">{item.name}</h1>
         <p className="card-text">${item.price}</p>
-        <p className="card-text">{item.category}</p>
+        <p className="card-text">{item.categoryId}</p>
         <p>{item.description}</p>
         <button className="btn btn-primary btn-lg">Agregar al carrito</button>
       </div>

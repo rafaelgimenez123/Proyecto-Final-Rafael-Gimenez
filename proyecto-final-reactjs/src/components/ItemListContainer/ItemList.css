@@ -1,17 +1,39 @@
-/* Estilos para la tarjeta */
+/* Estilo base para pantallas grandes */
+.item-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .item {
   display: flex;
-  justify-content: center; 
-  align-items: center; 
+  flex-direction: column;
+  align-items: center;
   border: 1px solid #ccc;
-  padding: 20px; 
-  margin-bottom: 20px;
+  padding: 20px;
+  margin: 0 10px 20px;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  max-width: 25%;
-  margin: 0 auto; 
-  margin-bottom: 20px;
   text-decoration: none !important;
+  width: calc(33.33% - 20px);
+}
+
+/* Media query para pantallas medianas */
+@media screen and (max-width: 768px) {
+  .item {
+    width: calc(50% - 20px); /* Cambia a 2 columnas */
+  }
+}
+
+/* Media query para pantallas pequeñas */
+@media screen and (max-width: 480px) {
+  .item-list {
+    flex-direction: column; /* Cambia a una columna */
+  }
+
+  .item {
+    width: 100%; /* Ocupa todo el ancho disponible */
+  }
 }
 
 .item-image img {
