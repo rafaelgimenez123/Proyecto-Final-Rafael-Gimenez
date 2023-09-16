@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { doc, getDoc, getFirestore } from "firebase/firestore";
 import { collection, getDocs, query, where } from "firebase/firestore";
 
   
@@ -15,7 +15,7 @@ export const getProduct = (id) => {
     
     getDoc(itemDoc)
       .then((doc) => {
-        if (doc.exists()) {
+        if (doc.data()) {
           resolve({ id: doc.id, ...doc.data() });
         } else {
           resolve(null);
