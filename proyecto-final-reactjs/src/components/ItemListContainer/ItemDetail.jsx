@@ -1,10 +1,12 @@
 import PropTypes from "prop-types";
-import { useContext  } from "react";
+import { useContext } from "react";
 import "./ItemList.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CartContext from "../../context/CartContext";
 
 const ItemDetail = ({ item, isLoading }) => {
+  const { addItem } = useContext(CartContext); // Use useContext to access addItem from CartContext
+
   if (isLoading) {
     return <h2>Cargando...</h2>;
   }
@@ -18,7 +20,6 @@ const ItemDetail = ({ item, isLoading }) => {
       <img
         src="https://img.global.news.samsung.com/latin/wp-content/uploads/2023/06/Galaxy_S23_Ultra_Product_Image_Lavender-1-e1686754825826.jpg"
         alt={item.name}
-        
       />
       <div>
         <h1>{item.name}</h1>
@@ -34,7 +35,6 @@ const ItemDetail = ({ item, isLoading }) => {
 ItemDetail.propTypes = {
   item: PropTypes.object,
   isLoading: PropTypes.bool,
-  addItem: propTypes.func
 };
 
 export default ItemDetail;

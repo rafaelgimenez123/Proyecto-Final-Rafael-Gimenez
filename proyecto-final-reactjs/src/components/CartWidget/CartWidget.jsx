@@ -3,13 +3,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { useContext } from 'react';
 import CartContext from "../../context/CartContext"
+import { getCartQuantity } from '../../Utils';
 const CartWidget = () => {
   const {cart} = useContext(CartContext)
-  console.log(cart)
+  const quantity = getCartQuantity(cart)
   return (
-    <div className="cart-icon">
+    <div>
       <FontAwesomeIcon icon={faShoppingCart} />
-      {cart.lenght}
+      {quantity > 0 ? quantity : ""}
     </div>
   );
 };
