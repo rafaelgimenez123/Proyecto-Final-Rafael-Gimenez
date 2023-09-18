@@ -5,6 +5,7 @@ import Navbar from "./components/NavBar/NavBar";
 import {BrowserRouter} from "react-router-dom"
 import React, {createContext, useState} from "react"
 import CartProvider from "./context/CartProvider.jsx"
+import CartView from "./CartView.jsx";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<ItemListContainer />} />
         <Route path="/category/:categoryId" element={<ItemListContainer />} />
         <Route path="/item/:id" element={<ItemDetailContainer />} />
+        <Route path="/cart" element={<CartView />} />
         
       </Routes>
       </BrowserRouter>

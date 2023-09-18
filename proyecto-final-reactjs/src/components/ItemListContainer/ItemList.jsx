@@ -20,7 +20,7 @@ const ItemList = ({ items, isLoading }) => {
               <div className="item-content">
                 <div className="item-image">
                   <img
-                    src="https://img.global.news.samsung.com/latin/wp-content/uploads/2023/06/Galaxy_S23_Ultra_Product_Image_Lavender-1-e1686754825826.jpg"
+                    src={item.imageId}
                     alt={item.name}
                   />
                 </div>
