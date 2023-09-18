@@ -24,7 +24,7 @@ const ItemDetail = ({ item, isLoading }) => {
   />
   <div className="card-body">
     <h1>{item.name}</h1>
-    <p>{item.price}</p>
+    <p>${item.price}</p>
     <p>{item.categoryId}</p>
     <p>{item.description}</p>
     <button className="btn btn-primary btn-lg" onClick={() => addItem(item, 1)}>Agregar al carrito</button>
