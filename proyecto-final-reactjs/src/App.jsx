@@ -5,7 +5,7 @@ import Navbar from "./components/NavBar/NavBar";
 import {BrowserRouter} from "react-router-dom"
 import React, {createContext, useState} from "react"
 import CartProvider from "./context/CartProvider.jsx"
-import CartView from "./CartView.jsx";
+import CartView from "./components/CartView.jsx";
 
 
 function App() {

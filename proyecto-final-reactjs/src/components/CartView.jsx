@@ -1,7 +1,7 @@
-import CartProvider from './context/CartProvider';
+import CartProvider from '../context/CartProvider';
 import React, { useContext } from 'react';
-import CartContext from "./context/CartContext";
-import "./components/ItemListContainer/ItemList"
+import CartContext from "../context/CartContext";
+import "./ItemListContainer/ItemList"
 
 
 const CartView = () => {
