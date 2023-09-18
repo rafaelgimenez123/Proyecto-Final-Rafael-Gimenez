@@ -1,6 +1,8 @@
+import CartProvider from './context/CartProvider';
 import React, { useContext } from 'react';
 import CartContext from "./context/CartContext";
 import "./components/ItemListContainer/ItemList"
+
 
 const CartView = () => {
   const { cart } = useContext(CartContext);
@@ -18,6 +20,11 @@ const CartView = () => {
               <p>{item.imageId}</p>
               <p>{item.description}</p>
               <p>${item.price}</p>
+              <button
+                className="btn btn-primary btn-lg"
+                onClick={() => removeItem(item.id)}>
+                Eliminar Item
+              </button>
             </div>
           ))}
         </div>

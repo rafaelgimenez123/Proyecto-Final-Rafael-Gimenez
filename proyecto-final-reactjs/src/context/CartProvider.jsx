@@ -27,7 +27,7 @@ const CartProvider = ({ children }) => {
       });
       setCart(newCart);
     } else {
-      // agregar item a cart
+     
       setCart([...cart, { ...product, quantity }]);
     }
   };
