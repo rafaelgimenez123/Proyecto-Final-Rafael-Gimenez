@@ -5,7 +5,7 @@ import "./components/ItemListContainer/ItemList"
 
 
 const CartView = () => {
-  const { cart } = useContext(CartContext);
+  const { cart,removeItem } = useContext(CartContext);
 
   return (
     <div>
