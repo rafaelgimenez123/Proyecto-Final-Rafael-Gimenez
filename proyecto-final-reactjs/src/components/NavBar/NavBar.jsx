@@ -22,6 +22,7 @@ const Navbar = () => {
           <li className="li_nav">
             <NavLink to="/category/notebooks">Notebooks</NavLink>
           </li>
+
           <li className="li_nav">
             
           </li>

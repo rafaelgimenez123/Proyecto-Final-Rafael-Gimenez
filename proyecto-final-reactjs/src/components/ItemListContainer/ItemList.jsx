@@ -26,7 +26,6 @@ const ItemList = ({ items, isLoading }) => {
                 </div>
                 <h3>{item.name}</h3>
                 <p>${item.price}</p>
-                <p>{item.categoryId}</p>
               </div>
             </Link>
           </div>

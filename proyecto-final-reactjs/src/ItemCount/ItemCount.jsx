@@ -1,34 +1,48 @@
-import React, { useState } from "react";
-import { Button } from "react-bootstrap";
+import React, { useState, useContext } from 'react';
+import CartContext from "../context/CartContext";
+import { Link } from "react-router-dom";
 
-const ItemCount = ({ initialCount, onCountChange }) => {
-  const [count, setCount] = useState(initialCount);
+function ItemCount({ initial, stock, item }) {
+  const [contador, setContador] = useState(initial);
+  const { addItem } = useContext(CartContext);
+  const [mostrarComponente, setMostrarComponente] = useState(true);
 
-  const sumar = () => {
-    setCount(count + 1);
-    onCountChange(count + 1);
-  };
-
-  const restar = () => {
-    if (count > 1) {
-      setCount(count - 1);
-      onCountChange(count - 1);
+  const handleAumentar = () => {
+    if (contador < stock) {
+      setContador(contador + 1);
     }
-  };
+  }
+
+  const handlerRestar = () => {
+    if (contador > initial) {
+      setContador(contador - 1);
+    }
+  }
+
+  const addToCart = () => {
+    // Llama a la función addItem con la cantidad seleccionada
+    addItem(item, contador);
+    // Puedes establecer el estado selectedQuantity aquí si es necesario
+    // item.setSelectedQuantity(contador);
+    setMostrarComponente(false);
+  }
 
   return (
-    <div>
-      <div className="d-flex flex-column align-items-center justify-content-between">
-        <Button variant="primary" onClick={restar}>
-          -
-        </Button>
-        <span>{count}</span>
-        <Button variant="primary" onClick={sumar}>
-          +
-        </Button>
-      </div>
+    <div className="container w-50">
+      {mostrarComponente ? (
+        <>
+          <div>
+            <button className="btn btn-outline-primary" onClick={handleAumentar}> + </button>
+            {contador}
+            <button className="btn btn-outline-primary" onClick={handlerRestar}> - </button>
+          </div>
+          <button className="btn btn-outline-primary btn-block" onClick={addToCart}>Agregar al carrito</button>
+        </>
+      ) : (
+        <Link className="btn btn-outline-primary btn-block" to="/cart">Ir Al Carrito</Link>
+      )}
     </div>
-  );
-};
+  )
+}
 
 export default ItemCount;
