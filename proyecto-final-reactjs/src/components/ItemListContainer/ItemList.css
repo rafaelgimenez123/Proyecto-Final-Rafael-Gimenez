@@ -1,4 +1,10 @@
 /* Estilo base para pantallas grandes */
+
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
+
+
 .item-list {
   display: flex;
   flex-wrap: wrap;
@@ -16,6 +22,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-decoration: none !important;
   width: calc(33.33% - 20px);
+  font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -72,6 +79,7 @@
   padding: 20px;
   border: 1px solid #ccc; 
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); 
+  font-family: 'Oswald', sans-serif;
 }
 
 .card img {
@@ -123,3 +131,8 @@
   height: 400px;
 }
 
+.item-price{
+  color: #333;
+  font-size: xx-large;
+  font-weight: 400;
+}
