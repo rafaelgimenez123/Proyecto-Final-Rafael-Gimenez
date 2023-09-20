@@ -1,21 +1,23 @@
 import React, { useContext, useState } from "react";
 import CartContext from "../../context/CartContext";
-import { serverTimestamp } from "firebase/firestore";
+import { Firestore, serverTimestamp } from "firebase/firestore";
 import { getCartTotal, mapCartToOrderItems } from "../../Utils";
 import { createOrder } from "../../services";
 import CartProvider from "../../context/CartProvider";
+import { collection, getDocs, query, where , db} from "firebase/firestore";
 
 const Checkout = () => {
   const [orderId, setOrderId] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { cart, clear } = useContext(CartContext);
 
-  const handleCheckout = () => {
+  const handleCheckout = async () => {
+    // Construye el objeto de orden
     const order = {
       buyer: {
-        name: document.getElementById("name").value, 
-        phone: document.getElementById("phone").value, 
-        email: document.getElementById("email").value, // 
+        name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        email: document.getElementById("email").value,
       },
       items: mapCartToOrderItems(cart),
       total: getCartTotal(cart),
@@ -23,11 +25,17 @@ const Checkout = () => {
     };
 
     setIsLoading(true);
-    createOrder(order).then((docRef) => {
+
+    try {
+      // Envia la orden a Firestore
+      const docRef = await addDoc(collection(db, "orders"), order);
       setOrderId(docRef.id);
       setIsLoading(false);
       clear();
-    });
+    } catch (error) {
+      console.error("Error al enviar la orden a Firestore:", error);
+      setIsLoading(false);
+    }
   };
 
   return (
