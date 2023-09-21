@@ -1,9 +1,11 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { initializeApp } from "firebase/app";
+import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: "AIzaSyC37RsL8X5snH8-1BH5MgOpqZq-PgMf2Sk",
@@ -15,7 +17,7 @@ const firebaseConfig = {
   measurementId: "G-N63F7TBMB0"
 };
 const app = initializeApp(firebaseConfig);
-
+export const db = getFirestore(app)
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

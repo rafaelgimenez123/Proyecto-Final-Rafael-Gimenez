@@ -1,16 +1,9 @@
-import { initializeApp } from "firebase/app";
-import { doc, getDoc, getFirestore } from "firebase/firestore";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { doc, getDoc, getFirestore, collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "./main";
 
-export const db = getFirestore();
-  
-  
-    // getProduct
-   // getProduct
+// getProduct
 export const getProduct = (id) => {
   return new Promise((resolve, reject) => {
-    
-
     const itemDoc = doc(db, "items", id);
     
     getDoc(itemDoc)
@@ -27,11 +20,8 @@ export const getProduct = (id) => {
   });
 };
 
-
 export const getProducts = (categoryId) => {
   return new Promise((resolve, reject) => {
-    const db = getFirestore();
-
     const itemCollection = collection(db, "items");
 
     let q;
@@ -55,8 +45,6 @@ export const getProducts = (categoryId) => {
 };
 
 export const createOrder = (orden) => {
-  const db = getFirestore();
-
   const ordersCollection = collection(db, "orders");
 
   return addDoc(ordersCollection, orden);
