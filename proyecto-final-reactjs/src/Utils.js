@@ -19,6 +19,6 @@ export const getCartQuantity = (cart) => {
       id: item.id,
       quantity: item.quantity,
       price: item.price,
-      title: item.title,
+      title: item.name,
     }));
   };
