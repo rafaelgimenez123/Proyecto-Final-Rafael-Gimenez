@@ -1,6 +1,6 @@
 import { useState } from "react";
 import CartContext from "./CartContext";
-import Swal from 'sweetalert2';
+
 
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
@@ -35,7 +35,6 @@ const CartProvider = ({ children }) => {
   const removeItem = (id) => {
     const newCart = cart.filter((item) => item.id !== id);
     setCart(newCart);
-    
   };
 
   const clear = () => {
@@ -50,7 +49,7 @@ const CartProvider = ({ children }) => {
   console.log(cart)
   return (
     <CartContext.Provider
-      value={{ cart, addItem, removeItem, clear, isInCart, total }}
+      value={{ cart, addItem, removeItem, clear, isInCart }}
     >
       {children}
     </CartContext.Provider>
