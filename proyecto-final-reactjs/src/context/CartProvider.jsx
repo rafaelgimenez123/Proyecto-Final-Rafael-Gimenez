@@ -1,7 +1,6 @@
 import { useState } from "react";
 import CartContext from "./CartContext";
 
-
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
@@ -11,7 +10,6 @@ const CartProvider = ({ children }) => {
   };
 
   const addItem = (product, quantity) => {
-  
     const itemInCart = isInCart(product.id);
 
     if (itemInCart) {
@@ -22,12 +20,10 @@ const CartProvider = ({ children }) => {
             quantity: item.quantity + quantity,
           };
         }
-
         return item;
       });
       setCart(newCart);
     } else {
-     
       setCart([...cart, { ...product, quantity }]);
     }
   };
@@ -42,11 +38,11 @@ const CartProvider = ({ children }) => {
   };
 
   const total = () => {
-    return cart.reduce((acc, item) => acc + item.quantity)
-  }
- 
+    return cart.reduce((acc, item) => acc + item.quantity);
+  };
+
+  console.log(cart);
   
-  console.log(cart)
   return (
     <CartContext.Provider
       value={{ cart, addItem, removeItem, clear, isInCart }}
@@ -55,6 +51,5 @@ const CartProvider = ({ children }) => {
     </CartContext.Provider>
   );
 };
-
 
 export default CartProvider;

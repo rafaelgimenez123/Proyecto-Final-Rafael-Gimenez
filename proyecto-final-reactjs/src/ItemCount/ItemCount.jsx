@@ -20,10 +20,7 @@ function ItemCount({ initial, stock, item }) {
   }
 
   const addToCart = () => {
-    // Llama a la función addItem con la cantidad seleccionada
     addItem(item, contador);
-    // Puedes establecer el estado selectedQuantity aquí si es necesario
-    // item.setSelectedQuantity(contador);
     setMostrarComponente(false);
   }
 

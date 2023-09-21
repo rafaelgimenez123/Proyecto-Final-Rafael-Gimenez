@@ -1,5 +1,5 @@
 import React from "react";
-import propTypes from "prop-types";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "./ItemList.css";
 import Loading from "../Loading/Loading";
@@ -20,7 +20,7 @@ const ItemList = ({ items, isLoading }) => {
         {items.map((item) => (
           <div className="col-md-4 mb-4" key={item.id}>
             <Link to={`/item/${item.id}`} className="text-decoration-none text-dark">
-              <div className="card" style={{ height: "100%" }}>
+              <div className="card hoverable" style={{ height: "100%" }}>
                 <img
                   src={item.imageId}
                   alt={item.name}
@@ -41,8 +41,8 @@ const ItemList = ({ items, isLoading }) => {
 };
 
 ItemList.propTypes = {
-  items: propTypes.array.isRequired,
-  isLoading: propTypes.bool,
+  items: PropTypes.array.isRequired,
+  isLoading: PropTypes.bool,
 };
 
 export default ItemList;

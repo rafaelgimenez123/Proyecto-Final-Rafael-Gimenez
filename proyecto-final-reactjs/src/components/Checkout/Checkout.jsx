@@ -3,6 +3,7 @@ import CartContext from "../../context/CartContext";
 import { getCartTotal, mapCartToOrderItems } from "../../Utils";
 import { collection,  addDoc, serverTimestamp } from "firebase/firestore";
 import {db} from '../../main'
+import Loading from "../Loading/Loading";
 
 const Checkout = () => {
   const [orderId, setOrderId] = useState(null);
@@ -43,9 +44,10 @@ const Checkout = () => {
 
   return (
     <div className="container mt-5">
-      <h1 className="mb-4">Checkout</h1>
+ 
 
-      <h2>Resumen de la compra</h2>
+      <h2>Resumen de la compra:</h2>
+      
 
       {orderId && <p>El id de la orden es: {orderId}</p>}
 
@@ -88,7 +90,7 @@ const Checkout = () => {
 
           <p>Total de la compra: ${getCartTotal(cart)}</p>
 
-          {isLoading && <p>Procesando compra...</p>}
+          {isLoading && <p>Procesando...</p>}
         </>
       )}
     </div>

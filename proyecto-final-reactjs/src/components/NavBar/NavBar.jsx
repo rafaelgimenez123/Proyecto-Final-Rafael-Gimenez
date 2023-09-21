@@ -1,38 +1,55 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
-import "../NavBar/NavBar.css";
-import CartWidget from '../CartWidget/CartWidget'
+import CartWidget from '../CartWidget/CartWidget';
 
 const Navbar = () => {
   return (
-    <div className="navbar-container">
-      <nav className="nav">
-        <h1 className="logo">
-          <Link to="/">Samsung de la salada store</Link>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div className="container">
+        <h1 className="navbar-brand">
+          <Link to="/">Samsung Store</Link>
         </h1>
 
-        <ul className="nav-list">
-          <li className="li_nav">
-            <NavLink to="/category/smartphones">Teléfonos</NavLink>
-          </li>
-          <li className="li_nav">
-            <NavLink to="/category/tablets">Tablets</NavLink>
-          </li>
-          <li className="li_nav">
-            <NavLink to="/category/notebooks">Notebooks</NavLink>
-          </li>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
 
-          <li className="li_nav">
-            
-          </li>
-        </ul>
-      </nav>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/category/smartphones">
+                Teléfonos
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/category/tablets">
+                Tablets
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/category/notebooks">
+                Notebooks
+              </NavLink>
+            </li>
+          </ul>
+        </div>
 
-      <div className="cart-widget">
-      <NavLink to="/cart"><CartWidget></CartWidget></NavLink>
+        <div className="navbar-text">
+          <NavLink to="/cart">
+            <CartWidget />
+          </NavLink>
+        </div>
       </div>
-    </div>
+    </nav>
   );
 };
 
