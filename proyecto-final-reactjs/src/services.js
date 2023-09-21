@@ -2,14 +2,14 @@ import { initializeApp } from "firebase/app";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 import { collection, getDocs, query, where } from "firebase/firestore";
 
-  
+export const db = getFirestore();
   
   
     // getProduct
    // getProduct
 export const getProduct = (id) => {
   return new Promise((resolve, reject) => {
-    const db = getFirestore();
+    
 
     const itemDoc = doc(db, "items", id);
     

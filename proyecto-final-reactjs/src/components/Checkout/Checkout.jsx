@@ -4,12 +4,14 @@ import { Firestore, serverTimestamp } from "firebase/firestore";
 import { getCartTotal, mapCartToOrderItems } from "../../Utils";
 import { createOrder } from "../../services";
 import CartProvider from "../../context/CartProvider";
-import { collection, getDocs, query, where , db} from "firebase/firestore";
+import { collection, getDocs, query, where , addDoc} from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 
 const Checkout = () => {
   const [orderId, setOrderId] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { cart, clear } = useContext(CartContext);
+
 
   const handleCheckout = async () => {
     // Construye el objeto de orden
