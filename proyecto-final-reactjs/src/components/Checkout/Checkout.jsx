@@ -6,7 +6,7 @@ import { createOrder } from "../../services";
 import CartProvider from "../../context/CartProvider";
 import { collection, getDocs, query, where , addDoc} from "firebase/firestore";
 import { getFirestore } from "firebase/firestore";
-
+import { db } from "../../services";
 const Checkout = () => {
   const [orderId, setOrderId] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
