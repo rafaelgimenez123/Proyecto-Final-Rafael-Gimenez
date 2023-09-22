@@ -2,24 +2,37 @@ import React, { useContext, useState } from "react";
 import CartContext from "../../context/CartContext";
 import { getCartTotal, mapCartToOrderItems } from "../../Utils";
 import { collection,  addDoc, serverTimestamp } from "firebase/firestore";
-import {db} from '../../main'
+import { db } from '../../main';
 import Loading from "../Loading/Loading";
+import Swal from 'sweetalert2';
 
 const Checkout = () => {
   const [orderId, setOrderId] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { cart, clear } = useContext(CartContext);
-  const [data, setData]= useState({})
+  const [data, setData] = useState({});
 
-  const handleOnChange = (e)=>{
+  const handleOnChange = (e) => {
     setData({
       ...data,
       [e.target.name]: e.target.value
-    })
-  }
+    });
+  };
 
   const handleCheckout = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
+
+    // Verificar si los campos del formulario están llenos
+    if (!data.name || !data.phone || !data.email) {
+      return (
+        Swal.fire(
+          'Ups!',
+          'Ingresa todos los campos para finalizar la compra!',
+          'error'
+        )
+      )
+    }
+
     // Construye el objeto de orden
     const order = {
       buyer: data,
@@ -27,7 +40,7 @@ const Checkout = () => {
       total: getCartTotal(cart),
       date: serverTimestamp(),
     };
-    console.log(order)
+    console.log(order);
     setIsLoading(true);
 
     try {
@@ -44,12 +57,13 @@ const Checkout = () => {
 
   return (
     <div className="container mt-5">
- 
-
       <h2>Resumen de la compra:</h2>
-      
 
-      {orderId && <p>El id de la orden es: {orderId}</p>}
+      {orderId && (
+        <div className="text-center">
+          <p className="display-1">El id de la orden es: {orderId}</p>
+        </div>
+      )}
 
       {!orderId && (
         <>
@@ -58,7 +72,7 @@ const Checkout = () => {
             <form>
               <div className="mb-3">
                 <label htmlFor="name" className="form-label">Nombre:</label>
-                <input type="text" id="name" name="name" className="form-control" onChange={handleOnChange}/>
+                <input type="text" id="name" name="name" className="form-control" onChange={handleOnChange} />
               </div>
               <div className="mb-3">
                 <label htmlFor="phone" className="form-label">Teléfono:</label>
@@ -66,7 +80,7 @@ const Checkout = () => {
               </div>
               <div className="mb-3">
                 <label htmlFor="email" className="form-label">Correo electrónico:</label>
-                <input type="email" id="email" name="email" className="form-control" onChange={handleOnChange}/>
+                <input type="email" id="email" name="email" className="form-control" onChange={handleOnChange} />
               </div>
               <button type="button" className="btn btn-primary" onClick={handleCheckout}>
                 Finalizar compra

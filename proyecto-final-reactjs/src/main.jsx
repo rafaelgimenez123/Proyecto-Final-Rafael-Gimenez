@@ -9,14 +9,15 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC37RsL8X5snH8-1BH5MgOpqZq-PgMf2Sk",
-  authDomain: "coder-react-b922b.firebaseapp.com",
-  projectId: "coder-react-b922b",
-  storageBucket: "coder-react-b922b.appspot.com",
-  messagingSenderId: "1041206921607",
-  appId: "1:1041206921607:web:69e8f328afc84eebdfab22",
-  measurementId: "G-N63F7TBMB0"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
+
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app)
 const root = ReactDOM.createRoot(document.getElementById('root'));

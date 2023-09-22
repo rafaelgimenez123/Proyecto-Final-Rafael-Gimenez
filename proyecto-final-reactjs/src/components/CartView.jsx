@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import CartContext from "../context/CartContext";
+import CartContext from '../context/CartContext';
 import { getCartQuantity } from '../Utils';
 import Swal from 'sweetalert2';
 import { Link, NavLink } from 'react-router-dom';
@@ -20,7 +20,9 @@ const CartView = () => {
     <div className="container mt-4">
       <h2>Carrito de Compras</h2>
       {cart.length === 0 ? (
-        <p>El carrito está vacío</p>
+        <div className="d-flex justify-content-center align-items-center" style={{ minHeight: '50vh' }}>
+          <p className="display-4">El carrito está vacío</p>
+        </div>
       ) : (
         <div>
           <div className="row">
@@ -45,13 +47,13 @@ const CartView = () => {
                 </div>
               </div>
             ))}
-                  <div className="d-flex justify-content-center"> 
-        <button className='btn btn-dark btn-lg' style={{ boxShadow: 'none', outline: 'none' }}>
-          <NavLink to="/chekout" style={{ textDecoration: 'none', color: 'inherit' }}>
-            Checkout
-          </NavLink>
-        </button>
-      </div>
+          </div>
+          <div className="d-flex justify-content-center mt-3">
+            <button className="btn btn-dark btn-lg" style={{ boxShadow: 'none', outline: 'none' }}>
+              <NavLink to="/chekout" style={{ textDecoration: 'none', color: 'inherit' }}>
+                Checkout
+              </NavLink>
+            </button>
           </div>
         </div>
       )}

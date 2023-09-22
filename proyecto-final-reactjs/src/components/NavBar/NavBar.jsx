@@ -8,7 +8,9 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
         <h1 className="navbar-brand">
-          <Link to="/">Samsung Store</Link>
+          <Link to="/" className="text-light">
+            Aethernum Technology Store
+          </Link>
         </h1>
 
         <button
@@ -26,17 +28,17 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <NavLink className="nav-link" to="/category/smartphones">
+              <NavLink className="nav-link text-light" to="/category/smartphones">
                 Teléfonos
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/category/tablets">
+              <NavLink className="nav-link text-light" to="/category/tablets">
                 Tablets
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/category/notebooks">
+              <NavLink className="nav-link text-light" to="/category/notebooks">
                 Notebooks
               </NavLink>
             </li>

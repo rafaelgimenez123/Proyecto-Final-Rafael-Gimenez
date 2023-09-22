@@ -29,7 +29,7 @@ const ItemList = ({ items, isLoading }) => {
                 />
                 <div className="card-body">
                   <h3 className="card-title">{item.name}</h3>
-                  <p className="card-text">${item.price}</p>
+                  <p className="card-text display-6">${item.price}</p>
                 </div>
               </div>
             </Link>
