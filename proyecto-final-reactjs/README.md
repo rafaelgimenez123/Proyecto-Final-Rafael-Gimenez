@@ -19,7 +19,7 @@ Para ejecutar este proyecto en tu entorno local, sigue estos pasos:
 1. Clona este repositorio en tu máquina local:
 
    ```shell
-  git clone https://github.com/rafaelgimenez123/Proyecto-Final-Rafael-Gimenez.git
+     git clone https://github.com/rafaelgimenez123/Proyecto-Final-Rafael-Gimenez.git
    ```
 
 2. Navega a la carpeta del proyecto:
