@@ -1,6 +1,6 @@
 # React + Vite
 
-# Proyecto de E-Commerce
+# Aethernum Tech Store
 
 Este es un proyecto de una aplicación de comercio electrónico desarrollada en React utilizando la biblioteca Vite. La aplicación permite a los usuarios ver una lista de productos, ver los detalles de un producto específico, agregar productos al carrito de compras y finalizar la compra.
 
