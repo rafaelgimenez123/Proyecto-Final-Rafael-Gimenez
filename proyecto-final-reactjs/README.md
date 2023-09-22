@@ -25,13 +25,18 @@ Para ejecutar este proyecto en tu entorno local, sigue estos pasos:
 2. Navega a la carpeta del proyecto:
 
    ```shell
-   cd nombre-del-repositorio
+   cd proyecto-final-reactjs
    ```
 
 3. Instala las dependencias del proyecto:
 
    ```shell
-   npm install
+   Bootsrap:
+   npm install bootstrap
+   Sweetalert:
+   npm install sweetalert2
+   Firebase:npm install --save firebase
+   
    ```
 
 4. Crea un archivo `.env` en la raíz del proyecto y configura las variables de entorno necesarias para Firebase (asegúrate de tener una cuenta de Firebase y obtener las credenciales):
@@ -52,7 +57,7 @@ Para ejecutar este proyecto en tu entorno local, sigue estos pasos:
    npm run dev
    ```
 
-6. Abre tu navegador y accede a [http://localhost:3000](http://localhost:3000) para ver la aplicación en funcionamiento.
+
 
 ## Estructura del Proyecto
 
