@@ -97,5 +97,8 @@ La aplicación utiliza un contexto del carrito (`CartContext.jsx`) para administ
 El componente `Checkout.jsx` permite a los usuarios finalizar la compra. Los usuarios deben completar un formulario de contacto con su nombre, teléfono y correo electrónico antes de finalizar la compra. Una vez que se completa el formulario, se crea una orden que se almacena en Firebase Firestore. El ID de la orden se muestra al usuario. La orden se almacena en la colección "orders" con la fecha de creación y los detalles de los productos.
 ## Video demostrativo
 https://youtu.be/nOZkFcrgSA4
+## Agradecimientos
+Nicolas Cieri por ser atento en las clases y ayudarme con mis dudas
+
 ---
 
